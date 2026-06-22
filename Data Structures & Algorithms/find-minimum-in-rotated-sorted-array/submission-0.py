@@ -1,0 +1,15 @@
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+
+        left, right =  0, len(nums)-1
+
+        while left <= right:
+            mid = (left+right)//2 # 6
+            if nums[mid] > nums[right]:
+                left = mid + 1
+            elif nums[mid] < nums[right]:
+                right = mid
+            else:
+                return nums[left]
